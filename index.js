@@ -1,16 +1,26 @@
-// User Input: Prompt Method
+// let age = window.prompt("Enter your age")
 
-// let username;
-// username = window.prompt("What's your username?");
-// console.log(username);
-// document.getElementById("p1").textContent = `Hello, ${username}!`;
+// age = Number(age);
+// age+=1;
 
+// console.log(age, typeof age);
 
-// User Input: Textbox Method
+let x = "Pizza"
+let y = "Pizza"
+let z = "Pizza"
 
-let username;
-document.getElementById("submitButton").onclick = function() {
-    username = document.getElementById("myInput").value;
-    console.log(username);
-    document.getElementById("p1").textContent = `Hello, ${username}!`;
-}
+// let x = "0"
+// let y = "0"
+// let z = "0"
+
+// let x = ""
+// let y = ""
+// let z = ""
+
+x = Number(x);
+y = String(y);
+z = Boolean(z);
+
+console.log(x, typeof x);
+console.log(y, typeof y);
+console.log(z, typeof z);
