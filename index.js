@@ -1,6 +1,2 @@
-console.log("message");
-console.log("another msg");
-
-
-window.alert(`This is an alert!`)
-
+document.getElementById("myHeading").textContent = `JS-Hello`;
+document.getElementById("myParagraph").textContent = `i love pizza!`;
