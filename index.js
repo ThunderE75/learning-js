@@ -1,7 +1,38 @@
-let name = 'Navneet Dubey';
-let age = 25;
-let isStudent = true
+let students = 21;
 
-document.getElementById("p1").textContent= `Your name is ${name}`;
-document.getElementById("p2").textContent= `Your are ${age} years old`
-document.getElementById("p3").textContent= `You are a student: ${isStudent}`;
+// students = students + 1;
+// students = students - 1;
+// students = students / 3;
+// students = students * 3;
+students = students ** 2;  // ** is exponent
+extraStudents = students % 3;
+
+
+console.log(students);
+console.log(extraStudents);
+
+// This also works.
+
+// students += 1;
+// students -= 1;
+// students *= 1;
+// students /= 1;
+// students **= 1;
+// students %= 1;
+
+// Also works.
+students++;
+students--;
+
+
+// Operator Precedence 
+/* 
+    parenthesis
+    exponent
+    Multiply, Divide, Modulus
+    Addition, Subtraction
+ */
+
+let r1 = 1+2*3+4**2
+
+console.log(r1);
