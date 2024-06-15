@@ -1,38 +1,16 @@
-let students = 21;
+// User Input: Prompt Method
 
-// students = students + 1;
-// students = students - 1;
-// students = students / 3;
-// students = students * 3;
-students = students ** 2;  // ** is exponent
-extraStudents = students % 3;
+// let username;
+// username = window.prompt("What's your username?");
+// console.log(username);
+// document.getElementById("p1").textContent = `Hello, ${username}!`;
 
 
-console.log(students);
-console.log(extraStudents);
+// User Input: Textbox Method
 
-// This also works.
-
-// students += 1;
-// students -= 1;
-// students *= 1;
-// students /= 1;
-// students **= 1;
-// students %= 1;
-
-// Also works.
-students++;
-students--;
-
-
-// Operator Precedence 
-/* 
-    parenthesis
-    exponent
-    Multiply, Divide, Modulus
-    Addition, Subtraction
- */
-
-let r1 = 1+2*3+4**2
-
-console.log(r1);
+let username;
+document.getElementById("submitButton").onclick = function() {
+    username = document.getElementById("myInput").value;
+    console.log(username);
+    document.getElementById("p1").textContent = `Hello, ${username}!`;
+}
