@@ -1,22 +1,14 @@
-let x = 21.5;
-let y = 2;
-let z = -56.4;
+const MIN = 50;
+const MAX = 100;
 let ans;
+// ans = Math.trunc(Math.random()*100);
 
-// ans = Math.round(x);
-// ans = Math.floor(x);
-// ans = Math.ceil(x);
-// ans = Math.trunc(x);
-// ans = Math.trunc(x);
-// ans = Math.pow(x,y);
-// ans = Math.sqrt(x);
-// ans = Math.log(x);
-// ans = Math.sin(x);
-// ans = Math.cos(x);
-// ans = Math.tam(x);
-// ans = Math.abs(z);
-// ans = Math.sign(z);
-// ans = Math.max(x,y,z);
-ans = Math.min(x,y,z);
+let btn = document.getElementById("rand");
+let dis = document.getElementById("display");
 
-document.getElementById("dis").textContent = ans;
+btn.onclick = function(){
+  ans = Math.floor(Math.random() * (MAX - MIN) ) + MIN;
+  dis.textContent = ans;
+}
+
+
