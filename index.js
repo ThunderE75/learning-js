@@ -1,24 +1,11 @@
-let display1 = document.getElementById("dis1");
-let display2 = document.getElementById("dis2");
+/* 
+Ternary operator:	 	Shortcut of if & else
+										Condition ? codeIfTrue : codeIfFalse
+*/
 
-let checkbox = document.getElementById("myCheckbox");
+let age = 26;
+let display = document.getElementById("display");
 
-let visa = document.getElementById("visaBtn");
-let mc = document.getElementById("mcBtn");
-let rupay = document.getElementById("rupayBtn");
+let message = age > 18 ? "You are an adult" : "You are a Minor";
 
-let submit = document.getElementById("subBtn");
-
-submit.onclick = function () {
-    if (checkbox.checked) {
-        display1.textContent = "You are subscribed!";
-    } else display1.textContent = "You are not subscribed!";
-
-    if (visa.checked) {
-        display2.textContent = "You have Visa";
-    } else if (mc.checked) {
-        display2.textContent = "You have Mastercard";
-    } else if (rupay.checked) {
-        display2.textContent = "You have Rupay";
-    } else display2.textContent = "You don't have a card";
-};
+display.textContent = message;
