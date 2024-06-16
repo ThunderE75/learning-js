@@ -10,19 +10,3 @@ body {
   font-family: Helvetica, sans-serif;
   text-align: center;
 }
-
-#btnContainer {
-  text-align: center;
-  /* justify-content: space-around;   */
-}
-
-.button {
-  padding: 10px 20px;
-  background-color: hsl(220, 100%, 69%);
-  cursor: pointer;
-  transition: background-color 0.5s;
-}
-
-.button:hover{
-    background-color: coral;
-}
