@@ -1,18 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
     <title>Lead Link</title>
-  </head>
-  <body>
-    <!-- <h1>Javascript</h1> -->
-    <h1 id="display">Answer</h1>
-    <label>Enter your age</label>
-    <input id="input" />
-    <button id="btn" class="button">Submit</button>
+</head>
+
+<body>
+    <h1>Radio & Checkboxes</h1>
+    <!-- <h1 id="display">Answer</h1> -->
+    <!-- Check box -->
+    <input type="checkbox" name="subBtn" id="myCheckbox">
+    <label for="myCheckbox">Subscribed to BroCode ?</label>
+
+    <br><br>
+    <!-- Radio buttons -->
+    <input type="radio" name="card" id="visaBtn">
+    <label for="visaBtn">Visa</label>
+
+    <input type="radio" name="card" id="mcBtn">
+    <label for="mcBtn">MasterCard</label>
+
+    <input type="radio" name="card" id="rupayBtn">
+    <label for="rupayBtn">RuPay</label>
+
+    <br><br>
+    <button id="subBtn" class="button">Submit</button>
+
+    <p id="dis1"></p>
+    <p id="dis2"></p>
+
     <!-- Should be at the bottom -->
     <script src="./index.js"></script>
-  </body>
+</body>
+
 </html>

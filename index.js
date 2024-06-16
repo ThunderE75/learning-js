@@ -1,16 +1,24 @@
-let btn = document.getElementById("btn");
-let display = document.getElementById("display");
+let display1 = document.getElementById("dis1");
+let display2 = document.getElementById("dis2");
 
-btn.onclick = function () {
-    let age = Number(document.getElementById("input").value);
+let checkbox = document.getElementById("myCheckbox");
 
-    if (age >= 60) {
-        display.textContent = "You are too old for this ride";
-    } else if (age == 0) {
-        display.textContent = "You were just born, you can't ride";
-    } else if (age < 0) {
-        display.textContent = "Please enter correct age!";
-    } else if (age <= 12) {
-        display.textContent = "You are too young, you can't ride";
-    } else display.textContent = "You go on this ride";
+let visa = document.getElementById("visaBtn");
+let mc = document.getElementById("mcBtn");
+let rupay = document.getElementById("rupayBtn");
+
+let submit = document.getElementById("subBtn");
+
+submit.onclick = function () {
+    if (checkbox.checked) {
+        display1.textContent = "You are subscribed!";
+    } else display1.textContent = "You are not subscribed!";
+
+    if (visa.checked) {
+        display2.textContent = "You have Visa";
+    } else if (mc.checked) {
+        display2.textContent = "You have Mastercard";
+    } else if (rupay.checked) {
+        display2.textContent = "You have Rupay";
+    } else display2.textContent = "You don't have a card";
 };
