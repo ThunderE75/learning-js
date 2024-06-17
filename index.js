@@ -1,31 +1,25 @@
-let day = "pizza";
-let message;
+let s1 = "Thunderized";
 let display = document.getElementById("display");
 
-switch (day) {
-    case 1:
-        message = "It's Sunday!";
-        break;
-    case 2:
-        message = "It's Monday";
-        break;
-    case 3:
-        message = "It's Tuesday";
-        break;
-    case 4:
-        message = "It's Wednesday";
-        break;
-    case 5:
-        message = "It's Thursday";
-        break;
-    case 6:
-        message = "It's Friday";
-        break;
-    case 7:
-        message = "It's Saturday";
-        break;
-    default:
-        message = `${day} is not a valid day.`;
-        break;
-}
-display.textContent = message;
+
+// display.textContent = s1.charAt(0);
+// display.textContent = s1.indexOf('e');
+// display.textContent = s1.lastIndexOf('e');
+// display.textContent = s1.length;
+
+let s2 = "   Thunder Emperor   ";
+// display.textContent = s2.trim();
+// display.textContent = s2.toUpperCase();
+// display.textContent = s2.toLowerCase();
+// display.textContent = s2.repeat(3);
+
+let s3 = "Thunder Emperor";
+// display.textContent = s2.startsWith('T');       // Returns Boolean
+// display.textContent = s2.endsWith('T');       // Returns Boolean
+// display.textContent = s2.includes('Emperor');       // Returns Boolean
+
+let pNum = '123-456-7890';
+// display.textContent = pNum.replace('-','');
+// display.textContent = pNum.replaceAll('-','');
+// display.textContent = pNum.padStart(15,'x');
+display.textContent = pNum.padEnd(15,'x');
