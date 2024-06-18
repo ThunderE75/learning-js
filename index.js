@@ -1,30 +1,15 @@
-const MIN = 1;
-const MAX = 100;
-let rand = Math.floor(Math.random() * (MAX - MIN + 1)) + MIN;
+let ctf = document.getElementById("ctf");
+let ftc = document.getElementById("ftc");
+let dis = document.getElementById("dis1");
+let result;
 
-let attempts = 0;
-let guess;
-let running = true;
-
-while (running) {
-    // window.alert(`DEBUGGING: Random Number = ${rand}`)
-    guess = window.prompt(`Attempt: ${attempts}   Enter a guess between ${MIN} - ${MAX}`);
-    guess = Number(guess);
-    if (isNaN(guess)) {
-        window.alert(`${guess} is mot a number, please enter a valid number.`);
-    } else if (guess < MIN || guess > MAX) {
-        window.alert(`Your guess is out of bounds!`);
-    } else {
-        attempts++;
-        if (guess > rand) {
-            window.alert(`Your guess too high!`);
-        } else if (guess < rand) {
-            window.alert(`Your guess too low!`);
-        } else if (guess == rand) {
-            window.alert(
-                `You guessed the correct number (${rand}) in ${attempts} attempts!`
-            );
-            running = false;
-        }
-    }
+function convert() {
+    let data = document.getElementById("txtbox").value;
+    if (ctf.checked) {
+        result = (data * 9) / 5 + 32;
+        dis.textContent = result.toFixed(2) + "°F";
+    } else if (ftc.checked) {
+        result = (data - 32) * (5 / 9);
+        dis.textContent = result.toFixed(2) + "°C";
+    } else dis.textContent = "Please select a unit.";
 }
