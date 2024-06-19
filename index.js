@@ -1,20 +1,28 @@
-let input = document.getElementById("num");
-let rollResult = document.getElementById("rollResult");
-let rollImages = document.getElementById("rollImages");
-const MIN = 1;
-const MAX = 6;
+const lowerCase = "abcdefghijklmnopqrstuvwxyz";
+const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const numbers = "0123456789";
+const specialChar = "!@#$%^&*()-=";
 
-function rollDice(params) {
-    let ROLL = input.value;
-    let results = [];
-    let images = [];
-    // console.log(MAX);
-    for (let i = 0; i < ROLL; i++) {
-        let rand = Math.floor(Math.random() * (MAX - MIN + 1)) + MIN;
-        results[i] = rand;
-        images[i]= `<image src='./Resources/Images/Dice/Dice-${rand}.png' alt='dice-${rand}'>`;
+let size=24;
+let includeLower = true;
+let includeUpper = true;
+let includeNumbers = true;
+let includeSpecial = true;
+
+let possible ="";
+possible += includeLower ? lowerCase : "";
+possible += includeSpecial ? specialChar : "";
+possible += includeNumbers ? numbers : "";
+possible += includeUpper ? upperCase : "";
+function generatePassword(size,possible) {
+    let max = possible.length-1;
+    let password="";
+    for (let i = 0; i < size; i++) {
+        let rand = Math.floor(Math.random()* (max));
+        // console.log(i, rand, possible[rand]);
+        password+=possible[rand];
     }
-    rollResult.textContent = `Dice: ${results}`;
-    rollImages.innerHTML = images.join("");
-    console.log(results);
+    console.log(`Generated Password: ${password}`);
+    // return password;
 }
+generatePassword(size,possible)
