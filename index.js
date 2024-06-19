@@ -1,28 +1,34 @@
-const lowerCase = "abcdefghijklmnopqrstuvwxyz";
-const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const numbers = "0123456789";
-const specialChar = "!@#$%^&*()-=";
+// Callbacks :  a function that is passed as an argument to another function
 
-let size=24;
-let includeLower = true;
-let includeUpper = true;
-let includeNumbers = true;
-let includeSpecial = true;
-
-let possible ="";
-possible += includeLower ? lowerCase : "";
-possible += includeSpecial ? specialChar : "";
-possible += includeNumbers ? numbers : "";
-possible += includeUpper ? upperCase : "";
-function generatePassword(size,possible) {
-    let max = possible.length-1;
-    let password="";
-    for (let i = 0; i < size; i++) {
-        let rand = Math.floor(Math.random()* (max));
-        // console.log(i, rand, possible[rand]);
-        password+=possible[rand];
-    }
-    console.log(`Generated Password: ${password}`);
-    // return password;
+// 03: Example
+sum(5, 9, display);
+function sum(x, y, callback) {
+    let result = x + y;
+    callback(result);
 }
-generatePassword(size,possible)
+function display(msg) {
+    console.log(msg);
+}
+
+// 02: Callbacks
+
+// hello(goodbye);             // <-- Pass the func name as args, mo brackets
+// function hello(Callback) {  // store it as a callback
+//     console.log("Hello");
+//     Callback();             // call the callback again at the end of the program
+// }
+// function goodbye() {
+//     console.log("Bye");
+// }
+
+// 01: The Problem //
+
+// hello();
+// goodbye();
+
+// function hello() {
+//     setTimeout(function(){console.log("Hello");}, 2000);
+// }
+// function goodbye() {
+//     console.log("Bye");
+// }
