@@ -1,22 +1,20 @@
-/*
-    Rest Paraeater (...rest):   
-        Packs multiple variables in one array
-        useful when we need variable number of parameters in a function
-        
-*/
+let input = document.getElementById("num");
+let rollResult = document.getElementById("rollResult");
+let rollImages = document.getElementById("rollImages");
+const MIN = 1;
+const MAX = 6;
 
-function fridge(...fruits) {    // Rest parameter
-    console.log(...fruits);     // Spread Parameter
+function rollDice(params) {
+    let ROLL = input.value;
+    let results = [];
+    let images = [];
+    // console.log(MAX);
+    for (let i = 0; i < ROLL; i++) {
+        let rand = Math.floor(Math.random() * (MAX - MIN + 1)) + MIN;
+        results[i] = rand;
+        images[i]= `<image src='./Resources/Images/Dice/Dice-${rand}.png' alt='dice-${rand}'>`;
+    }
+    rollResult.textContent = `Dice: ${results}`;
+    rollImages.innerHTML = images.join("");
+    console.log(results);
 }
-
-// when its used in a function parameter, its 'rest'
-// When used with an array, its 'spread'
-
-
-let food1 = "apple";
-let food2 = "banana";
-let food3 = "coconut";
-let food4 = "dewberry";
-let food5 = "pineapple";
-
-fridge(food1, food2, food3, food4)

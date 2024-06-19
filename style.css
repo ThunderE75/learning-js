@@ -6,53 +6,63 @@
 body {
   color: aliceblue;
   text-align: center;
-  font-size: 1em;
+  font-size: 1rem;
   font-family: FiraCode;
-  background-color: rgb(46, 46, 46);
-}
-
-h1{
-  color: hsl(220, 100%, 69%);
+  background-color: hsl(0, 0%, 20%);
 }
 
 
-form{
-  background-color: hsl(0, 0%, 10%);
+.container{
+  /* font-size: ; */
+  background-color: hsl(0, 0%, 14%);
+  margin: auto;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.inputBox{
+  color: aliceblue;
+  background-color: hsl(0, 0%, 35%);
+  font-size: 1rem;
+  padding: 5px 5px;
+  border: none;
+  max-width: 4em;
+}
+
+#rollResult{
   margin: auto;
   padding: 10px;
-  width: 350px;
-
-  border-radius: 10px;
-  box-shadow: 5px 5px 15px hsl(220, 100%, 69%);;
 }
 
-#txtbox{
+#rollImages{
+  background-color: aliceblue;
+  width: auto;
+  margin: auto;
+  
+}
+
+#rollImages img{
+  width: 128px;
+  margin: 6px;
+}
+
+.button{
+  font-size: 1rem;
+  font-weight: bold;
   color: aliceblue;
-  width: 50%;
-  margin: 20px;
-  background-color: hsl(0, 0%, 15%);
-  text-align: center;
-  border: 2px solid hsl(0, 0%, 85%);
-  border-radius: 4px;
-  /* padding: 10px; */
+  background-color: hsl(200, 100%, 50%);
+  /* font-size: 1.2rem; */
+  /* color: aliceblue; */
+  padding: 6px 6px;
+  border-radius: 2px;
+  border: none;
 }
-
-.options:checked{
-  accent-color: coral;
-}
-
-.options:hover{
-  color: coral;
-}
-
-.button {
-  padding: 10px 15px;
-  border-radius: 10%;
-  background-color: hsl(220, 100%, 69%);
-  cursor: pointer;
-  transition: background-color 0.5s;
-}
-
 .button:hover{
-    background-color: hsl(16, 100%, 66%);
+  background-color: hsl(200, 100%, 60%);
+}
+
+.button:active{
+  color: black;
+  background-color: hsl(28, 100%, 66%);
 }
