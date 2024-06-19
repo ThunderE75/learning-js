@@ -1,34 +1,22 @@
-// Callbacks :  a function that is passed as an argument to another function
+// For each :   Iterate over each element of the array and apply a function
+//              Element, Index, Array are provided, so you can use it as args
+//              function(element, index, array){....}
 
-// 03: Example
-sum(5, 9, display);
-function sum(x, y, callback) {
-    let result = x + y;
-    callback(result);
+let arr = [1, 2, 3, 4, 5];
+arr.forEach(triple);
+
+function display(element) {
+    console.log(element);
 }
-function display(msg) {
-    console.log(msg);
+
+function double(element) {
+    element *= 2;
+    display(element);
 }
 
-// 02: Callbacks
-
-// hello(goodbye);             // <-- Pass the func name as args, mo brackets
-// function hello(Callback) {  // store it as a callback
-//     console.log("Hello");
-//     Callback();             // call the callback again at the end of the program
-// }
-// function goodbye() {
-//     console.log("Bye");
-// }
-
-// 01: The Problem //
-
-// hello();
-// goodbye();
-
-// function hello() {
-//     setTimeout(function(){console.log("Hello");}, 2000);
-// }
-// function goodbye() {
-//     console.log("Bye");
-// }
+function triple(element, index, array) {
+    // array[index] === element (just a different way to assess it)
+    array[index] = element * 3;
+    display(array[index]);
+}
+// display(array);
