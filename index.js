@@ -1,14 +1,10 @@
-// map :        Iterate over each element of the array and apply a function
-//              Same as forEach but returns a new array,
-//              so it needs to be stored in a variable
-//              Element, Index, Array are provided, so you can use it as args
-//              function(element, index, array){....}
+// filter :     Create a mew array by filtering them by using callback
 
-let arr = [1, 2, 3, 4, 5];
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-let tripled = arr.map(triple);
+let evenEle = arr.filter(isEven);
+console.log(evenEle);
 
-function triple(element) {
-    return element * 3;
+function isEven(element) {
+    return element % 2 === 0;
 }
-console.log(tripled);
