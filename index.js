@@ -1,27 +1,28 @@
-// Class      A more structured way to make instance of an objects
-//            Inside class, when making a constructor, we use the
-//            constructor keyword, amd for func. we don't need to
-//            write the function keyword.
+// Static   This keyword defines property & func. of a class
+//          itself rather than the property of objects
+//          Basically, you can access that property without
+//          making an object of that class
 
-const salesTax = 0.05;
+class mathUtils {
+    static PI = 3.14159;
 
-class Product {
-    constructor(name, price) {
-        this.name = name;
-        this.price = price;
+    static getDiameter(radius) {
+        return radius * 2;
     }
 
-    display() {
-        console.log(`Product: ${this.name}`);
-        console.log(`Price: ${this.price}`);
+    static getCircumference(radius) {
+        return 2 * this.PI * radius;
     }
 
-    calculateTotal(salesTax) {
-        return this.price + this.price * salesTax;
+    static getArea(radius) {
+        return this.PI * radius * radius;
     }
 }
 
-// Making an instance of a product
-const product1 = new Product("Shirt", 19.95);
-product1.display();
-console.log(product1.calculateTotal(salesTax).toFixed(2));
+//  No need to make object of that class
+//  const obj = new mathUtils();
+
+console.log(mathUtils.PI); // using it directly
+console.log(mathUtils.getDiameter(10));
+console.log(mathUtils.getCircumference(10).toFixed(2));
+console.log(mathUtils.getArea(10).toFixed(2));
