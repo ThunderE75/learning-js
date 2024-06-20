@@ -1,28 +1,26 @@
-// Static   This keyword defines property & func. of a class
-//          itself rather than the property of objects
-//          Basically, you can access that property without
-//          making an object of that class
+// Inheritance      Allows a new class to inherit properties & methods
+//                  from its parent class.
+//                  Allows easy code reusability
 
-class mathUtils {
-    static PI = 3.14159;
-
-    static getDiameter(radius) {
-        return radius * 2;
+class Animal {
+    isAlive = true;
+    eat(){
+        console.log(`${this.name} is eating!`);
     }
-
-    static getCircumference(radius) {
-        return 2 * this.PI * radius;
-    }
-
-    static getArea(radius) {
-        return this.PI * radius * radius;
+    sleep(){
+        console.log(`${this.name} is sleeping!`);
     }
 }
 
-//  No need to make object of that class
-//  const obj = new mathUtils();
+class rabbit extends Animal {
+    name = "rabbit";
+}
+class hawk extends Animal {
+    name = "hawk";
+}
 
-console.log(mathUtils.PI); // using it directly
-console.log(mathUtils.getDiameter(10));
-console.log(mathUtils.getCircumference(10).toFixed(2));
-console.log(mathUtils.getArea(10).toFixed(2));
+const rabbit1 = new rabbit();
+const hawk1 = new hawk();
+
+console.log(rabbit1.name);
+rabbit1.eat();
