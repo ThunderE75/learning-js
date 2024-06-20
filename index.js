@@ -1,10 +1,32 @@
-// Arrow Functions      An concise way to define a function 
-//                      (parameter) => code 
-//                      Prevents polluting the global namespace
+// Objects      A collection of properties & methods 
+//              object = {key:value,
+//                        function(),} 
+//              They can be invoked using dot notation
 
-let greet = (name,age)=> {
-    console.log(`Hello ${name}`);
-    console.log(`You are ${age} years old`);
+const person1 = {
+    firstName: "Spongebob",
+    lastName: "Squarepants",
+    age: 30,
+    isEmployed: true,
+    greet:()=>{return "Hello, I am Spongebob!"}
 }
 
-greet("Navneet", 26)
+const person2 = {
+    firstName: "Patrick",
+    lastName: "Star",
+    age: 42,
+    isEmployed: false,
+    greet:()=>{return "Hi, i'm Patrick!"}
+}
+
+console.log(person1.firstName);
+console.log(person1.lastName);
+console.log(person1.age);
+console.log(person1.isEmployed);
+console.log(person1.greet());
+
+console.log(person2.firstName);
+console.log(person2.lastName);
+console.log(person2.age);
+console.log(person2.isEmployed);
+console.log(person2.greet());
