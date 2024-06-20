@@ -1,28 +1,27 @@
-// Constructor      A special function used to make instance of an objects
-//                  Conventionally, the identifier name starts with upper case
-//                  used to define the properties of that object
+// Class      A more structured way to make instance of an objects
+//            Inside class, when making a constructor, we use the
+//            constructor keyword, amd for func. we don't need to
+//            write the function keyword.
 
-// Example object
-// const car = {
-//     make: "Ford",
-//     model: "Mustang",
-//     year: 2024,
-//     inProduction: true
-// }
+const salesTax = 0.05;
 
-function Car(make, model, year, inProduction) {
-    this.make = make;
-    this.model = model;
-    this.year = year;
-    this.inProduction = inProduction;
-    this.drive=function() {return `You are driving a ${this.year} ${this.make} ${this.model}`}
+class Product {
+    constructor(name, price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    display() {
+        console.log(`Product: ${this.name}`);
+        console.log(`Price: ${this.price}`);
+    }
+
+    calculateTotal(salesTax) {
+        return this.price + this.price * salesTax;
+    }
 }
 
-// Making an instance of a car
-const car1 = new Car("Ford","Mustang",2024,true);
-
-console.log(car1.make);
-console.log(car1.model);
-console.log(car1.year);
-console.log(car1.inProduction);
-console.log(car1.drive());
+// Making an instance of a product
+const product1 = new Product("Shirt", 19.95);
+product1.display();
+console.log(product1.calculateTotal(salesTax).toFixed(2));
