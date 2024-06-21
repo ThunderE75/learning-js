@@ -1,51 +1,44 @@
-//  Nested Objects      Objects inside Objects
-//                      the assign them to variables in a different way
-//                      [] = Array destructuring
-//                      {} = Object destructuring
+//  array of objects
 
-// const person1 = {
-//     name: "Spongebob Squarepants",
-//     age: 24,
-//     isEmployed: true,
-//     hobbies: ["Karate","Jelly Fishing","Cooking"],
-//     address:{
-//         house:"Pineapple under the sea",
-//         city: "Bikini Bottom"
-//     }
-// };
+let fruits = [
+    { name: "Apple", color: "Red", price: "50" },
+    { name: "Orange", color: "Orange", price: "60" },
+    { name: "Banana", color: "Yellow", price: "30" },
+    { name: "Guava", color: "Green", price: "40" },
+];
 
-// console.log(person1.name);
-// console.log(person1.age);
-// console.log(person1.isEmployed);
-// console.log(person1.hobbies[1]);
-// console.log(person1.address);
-// console.log(person1.address.house);
-// console.log(person1.address.city);
+// How to access it
+console.log(fruits);
+console.log(fruits[2].color);
 
-// console.log('');
-// // To  loop through properties of a nested object
-// for (const prop in person1.address) {
-//     console.log(person1.address[prop]);
-// }
+// Pushing & Popping
+fruits.push({ name: "Blueberry", color: "Blue", price: "70" });
+console.log(fruits);
 
-// YT Link: https://youtu.be/lfmg-EJ8gm4?t=22477
+// fruits.push("Blueberry", 'blue', 90);
+// This will mot work & will pass it at different index
 
-class person {
-    constructor(name, age, ...address) {
-        this.name = name;
-        this.age = age;
-        this.address = new Address(...address);
-    }
-}
-class Address {
-    constructor(house, city) {
-        this.house = house;
-        this.city = city;
-    }
-}
+// fruits.pop();
+// console.log(fruits);
 
-const person1 = new person("Spongebob", 24, "Pineapple", "Bikini Bottom");
-console.log(person1.name);
-console.log(person1.age);
-console.log(person1.address.house);
-console.log(person1.address.city);
+// Splicing
+// console.log(fruits.splice(1,3));
+
+// for Each
+// fruits.forEach(fruit => console.log(fruit));
+// fruits.forEach(fruit => console.log(fruit.color));
+
+// map
+const fruitNames = fruits.map((fruit) => fruit.name);
+console.log(fruitNames);
+
+// filter
+const belowFifty = fruits.filter((fruit) => fruit.price <= 50);
+console.log(belowFifty);
+
+// reduce()
+
+const mostExpensive = fruits.reduce((max, fruit) =>
+    fruit.price > max.price ? fruit : max
+);
+console.log(mostExpensive);
