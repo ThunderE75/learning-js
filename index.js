@@ -1,34 +1,18 @@
-//  Closure     Function inside Function (Nested Function)
-//              The inside function has access to all variables in outer
-//              Used in JS Frameworks : React, Angular, Vue
+// Digital clock
+let display = document.getElementById("dis2");
 
-function outer() {
-    let msg = "hello";
-    function inner() {
-        console.log(msg);
-    }
-    inner();
+function updateTime() {
+    const clk = new Date();
+    let hour = clk.getHours();
+    hour = hour > 12 ? (hour -= 12) : hour;
+    let meridian = hour > 12 ? "AM" : "PM";
+    //hour = hour % 12 || 12;
+    hour = hour.toString().padStart(2, 0);
+    let mins = clk.getMinutes().toString().padStart(2, 0);
+    let secs = clk.getSeconds().toString().padStart(2, 0);
+
+    let finalDisplay = hour + ":" + mins + ":" + secs + " " + meridian;
+    display.textContent = finalDisplay;
+    setTimeout(updateTime, 1000);
 }
-// inner();     // can't call inner function directly
-outer();
-
-// It's also useful to maintain state
-function createCounter() {
-    let count = 0;
-    function increment() {
-        count += 1;
-        console.log(`Current count : ${count}`);
-    }
-    function getCount() {
-        return count;
-    }
-    return { increment, getCount };
-    // Returning the increment as object
-    // So it can be accessed
-}
-
-const myCounter = createCounter();
-myCounter.increment();
-myCounter.increment();
-myCounter.increment();
-console.log(myCounter.getCount());
+updateTime();
