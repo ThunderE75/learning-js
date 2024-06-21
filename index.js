@@ -1,36 +1,39 @@
-//  Sort()      use to sort elements of an array in place
-//              Sort elements as a string in  lexicographic fashion
+//  date Objects
 //
 
-let fruits = ["Pineapple", "Guava", "Apple", "Blueberry", "Banana"];
-let nums = [5, 3, 1, 8, 10, 6, 4];
+const date = new Date();
+console.log(date);
 
-fruits.sort();
-nums.sort();
+// Date(year, month, day, hour, min, sec, ms)
+// The Months are zero indexed, so 0 = Jan, 11 = Dec
+const date1 = new Date(2024, 6, 21, 16, 56, 24);
+console.log(date1);
 
-console.log(fruits);
-console.log(nums); // due to lexicographic sort, 1 is next to 10.
+const date2 = new Date("2024-06-21T16:57:49Z");
+console.log(date2);
 
-// we can use functions inside sort
-// we can use this to fix lexicographic sort
-nums = [5, 3, 1, 8, 10, 6, 4];
+// we can also just use epoch time in seconds
+const date3 = new Date(0);
+console.log(date3);
 
-nums.sort((a, b) => a - b);     // a referst to 1st element & b to 2nd
-// nums.sort((a, b) => b - a);  // To sort in reverse
-console.log(nums);
+// getters for Date object
+const date4 = new Date();
+console.log(date4.getFullYear());
+console.log(date4.getMonth());
+console.log(date4.getDate());
+console.log(date4.getDay());
+console.log(date4.getHours());
+console.log(date4.getMinutes());
+console.log(date4.getSeconds());
+console.log(date4.getTime()); // Epoch time
 
-// We can also sort array of objects
-let persons = [
-    { name: "Spongebob", age: 30, salary: 100 },
-    { name: "Mr Krabs", age: 65, salary: 1000 },
-    { name: "Patrick", age: 35, salary: 0 },
-    { name: "Squidward", age: 56, salary: 120 },
-];
+// Setters for Date Object
+const date5 = new Date();
+date5.setFullYear(2020);
+date5.setMonth(10); // 10 = november - zero indexed
+date5.setDate(27); 
+date5.setHours(17);
+date5.setMinutes(5);
+date5.setSeconds(32);
 
-console.log(persons);
-persons.sort((a, b) => a.salary - b.salary);
-console.log(persons);
-
-persons.sort((a, b) => a.name - b.name); // doesn't work with strings
-// We use .localCompare() for lexicographic string sort
-persons.sort((a, b) => a.name.localeCompare(b.name)); 
+console.log(date5);
