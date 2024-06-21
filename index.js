@@ -1,44 +1,36 @@
-//  array of objects
+//  Sort()      use to sort elements of an array in place
+//              Sort elements as a string in  lexicographic fashion
+//
 
-let fruits = [
-    { name: "Apple", color: "Red", price: "50" },
-    { name: "Orange", color: "Orange", price: "60" },
-    { name: "Banana", color: "Yellow", price: "30" },
-    { name: "Guava", color: "Green", price: "40" },
+let fruits = ["Pineapple", "Guava", "Apple", "Blueberry", "Banana"];
+let nums = [5, 3, 1, 8, 10, 6, 4];
+
+fruits.sort();
+nums.sort();
+
+console.log(fruits);
+console.log(nums); // due to lexicographic sort, 1 is next to 10.
+
+// we can use functions inside sort
+// we can use this to fix lexicographic sort
+nums = [5, 3, 1, 8, 10, 6, 4];
+
+nums.sort((a, b) => a - b);     // a referst to 1st element & b to 2nd
+// nums.sort((a, b) => b - a);  // To sort in reverse
+console.log(nums);
+
+// We can also sort array of objects
+let persons = [
+    { name: "Spongebob", age: 30, salary: 100 },
+    { name: "Mr Krabs", age: 65, salary: 1000 },
+    { name: "Patrick", age: 35, salary: 0 },
+    { name: "Squidward", age: 56, salary: 120 },
 ];
 
-// How to access it
-console.log(fruits);
-console.log(fruits[2].color);
+console.log(persons);
+persons.sort((a, b) => a.salary - b.salary);
+console.log(persons);
 
-// Pushing & Popping
-fruits.push({ name: "Blueberry", color: "Blue", price: "70" });
-console.log(fruits);
-
-// fruits.push("Blueberry", 'blue', 90);
-// This will mot work & will pass it at different index
-
-// fruits.pop();
-// console.log(fruits);
-
-// Splicing
-// console.log(fruits.splice(1,3));
-
-// for Each
-// fruits.forEach(fruit => console.log(fruit));
-// fruits.forEach(fruit => console.log(fruit.color));
-
-// map
-const fruitNames = fruits.map((fruit) => fruit.name);
-console.log(fruitNames);
-
-// filter
-const belowFifty = fruits.filter((fruit) => fruit.price <= 50);
-console.log(belowFifty);
-
-// reduce()
-
-const mostExpensive = fruits.reduce((max, fruit) =>
-    fruit.price > max.price ? fruit : max
-);
-console.log(mostExpensive);
+persons.sort((a, b) => a.name - b.name); // doesn't work with strings
+// We use .localCompare() for lexicographic string sort
+persons.sort((a, b) => a.name.localeCompare(b.name)); 
