@@ -1,33 +1,50 @@
-// Super    Keyword used to access properties of parent class
-//          We can call the constructor of the parent class 
-//          this = this object
-//          super = the parent
+// Setter   A special method that makes a property writeable.
+// Getter   A special method that makes a property Readable.
 
+class Rectangle {
+    constructor(width, height) {
+        this.width = width;
+        this.height = height;
+    }
 
-class Animal {
-    constructor(name, age) {
-        this.name = name;
-        this.age = age;
+    // _varName = it means that it's an internal variable &
+    // others should not access it directly, but you can
+
+    set width(inputWidth) {
+        if (inputWidth > 0) {
+            this._width = inputWidth;
+        } else {
+            console.error("Width should be positive.");
+        }
+    }
+
+    set height(inputHeight) {
+        if (inputHeight > 0) {
+            this._height = inputHeight;
+        } else {
+            console.error("Height should be positive.");
+        }
+    }
+    get width() {
+        return this._width;
+    }
+    get height() {
+        return this._height;
+    }
+    get area() {
+        return this._height * this._width;
     }
 }
 
-class rabbit extends Animal {
-    constructor(name, age, runSpeed) {
-        super(name, age);
-        this.runSpeed = runSpeed;
-    }
-}
-class hawk extends Animal {
-    constructor(name, age, flySpeed) {
-        super(name, age);
-        this.flySpeed = flySpeed;
-    }
-}
+const rect1 = new Rectangle(10, 20);
 
+// rect1.height=-5;
+// rect1._height=-5;
 
-const rabbit1 = new rabbit("Bugs", 5, 25);
-const hawk1 = new hawk("hawksnest", 4, 43);
+console.log(rect1.width);
+console.log(rect1.height);
+console.log(rect1.area);
 
-console.log(rabbit1.name);
-console.log(rabbit1.age);
-console.log(rabbit1.runSpeed);
+// const rect2 = new Rectangle(-6900, "Pizza"); // Shouldn't be possible
+// console.log(rect2.width);
+// console.log(rect2.height);
