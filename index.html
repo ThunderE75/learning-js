@@ -9,10 +9,15 @@
 </head>
 
 <body>
-    <!-- <h1>Digital clock</h1> -->
+    <h1>Stopwatch</h1>
     <!-- <h3 id="dis1" class="display">Time</h3> -->
-    <div>
-        <div id="dis2" class="clock">time</div>
+    <div class="mainContainer">
+        <div id="timer" class="timer">time</div>
+        <div class="buttonContainer">
+            <button id="startBtn" class="btn" onclick="start()">Start</button>
+            <button id="stopBtn" class="btn" onclick="stop()">Stop</button>
+            <button id="resetBtn" class="btn" onclick="reset()">Reset</button>
+        </div>
     </div>
 
     <script src="./index.js"></script>

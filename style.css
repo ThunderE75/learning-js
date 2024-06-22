@@ -3,14 +3,15 @@
     src: url("./Resources/FIRAMONONERDFONT-REGULAR_0.OTF");
 }
 
-/* https://youtu.be/lfmg-EJ8gm4?t=25684 */
 body {
+    margin: 0;
     background-image: url(./Resources/Images/background.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    margin: 0;
+    backdrop-filter: blur(6px);
+    height: 97vh;
 
     color: aliceblue;
     text-align: center;
@@ -19,17 +20,60 @@ body {
     /* background-color: hsl(0, 0%, 20%); */
 }
 
-.clock {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    /* vh = viewport height */
-    font-size: 3em;
-    backdrop-filter: blur(5px);
+.timer {
+    font-size: 2rem;
+    font-weight: bold;
+    color: hsl(203, 100%, 62%);
+    text-shadow: 2px 2px 4px black;
+    margin: 1rem;
 }
-#dis2{
-  color: hsl(191, 100%, 87%);
-  font-weight: bold;
-  text-shadow: 4px 4px 2px hsl(0, 0%, 15%);
+.mainContainer {
+    display: block;
+    align-self: center;
+}
+
+
+.btn {
+    /* background-color: hsl(203, 100%, 62%); */
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 6px 50px;
+    transition: background-color 0.4s ease;
+}
+
+#startBtn {
+    background-color: hsl(132, 100%, 62%);
+}
+
+#startBtn:hover {
+    background-color: hsl(132, 100%, 70%);
+}
+
+#startBtn:active {
+    background-color: hsl(132, 100%, 50%);
+}
+
+#stopBtn {
+    color: aliceblue;
+    background-color: hsl(348, 100%, 50%);
+}
+#stopBtn:hover {
+    color: aliceblue;
+    background-color: hsl(348, 100%, 60%);
+}
+#stopBtn:active {
+    color: aliceblue;
+    background-color: hsl(348, 100%, 40%);
+}
+
+#resetBtn {
+    background-color: hsl(203, 100%, 60%);
+}
+#resetBtn:hover {
+    background-color: hsl(203, 100%, 70%);
+}
+#resetBtn:active{
+    background-color: hsl(203, 100%, 50%);
 }
