@@ -1,11 +1,32 @@
-// ES6 Modules      External files that contains reusable code
+// Synchronous      Sequential execution of code; Blocks the flow until complete
+// Asynchronous     Multiple operations happens concurrently; Doesn't block the flow until complete
+//                  We can handle async code by : Callback. Promise, Async/Await
 
-// we will use object destructuring to get all the variables 
-// & functions that we wanna use from the module
-// use the import keyword 
-import { PI, getCircumference, getArea } from './mathUtils.js'
+// Synchronous 
+// console.log('Synchronous');
+// console.log('Task 1');
+// console.log('Task 2');
+// console.log('Task 3');
 
-console.log(PI);
-console.log(`${getCircumference(10).toFixed(2)}cm`);
-console.log(`${getArea(10).toFixed(2)}cm^2`);
 
+// Asynchronous 
+// console.log('Asynchronous');
+// setTimeout(() => console.log('Task 1'), 2000)
+// console.log('Task 2');
+// console.log('Task 3');
+
+
+function f1(callback) {
+    console.log('Synchronized using callbacks');
+    setTimeout(
+        () => {
+            console.log('Task A');
+            callback();
+        }, 2000)
+
+}
+function f2() {
+    console.log('Task B');
+}
+
+f1(f2);
