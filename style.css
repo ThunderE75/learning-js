@@ -4,76 +4,10 @@
 }
 
 body {
-    margin: 0;
-    background-image: url(./Resources/Images/background.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    backdrop-filter: blur(6px);
-    height: 97vh;
-
     color: aliceblue;
     text-align: center;
     font-size: 1rem;
     font-family: FiraCode;
-    /* background-color: hsl(0, 0%, 20%); */
+    background-color: hsl(0, 0%, 20%);
 }
 
-.timer {
-    font-size: 2rem;
-    font-weight: bold;
-    color: hsl(203, 100%, 62%);
-    text-shadow: 2px 2px 4px black;
-    margin: 1rem;
-}
-.mainContainer {
-    display: block;
-    align-self: center;
-}
-
-
-.btn {
-    /* background-color: hsl(203, 100%, 62%); */
-    border: none;
-    border-radius: 4px;
-    font-size: 1.2em;
-    font-weight: bold;
-    padding: 6px 50px;
-    transition: background-color 0.4s ease;
-}
-
-#startBtn {
-    background-color: hsl(132, 100%, 62%);
-}
-
-#startBtn:hover {
-    background-color: hsl(132, 100%, 70%);
-}
-
-#startBtn:active {
-    background-color: hsl(132, 100%, 50%);
-}
-
-#stopBtn {
-    color: aliceblue;
-    background-color: hsl(348, 100%, 50%);
-}
-#stopBtn:hover {
-    color: aliceblue;
-    background-color: hsl(348, 100%, 60%);
-}
-#stopBtn:active {
-    color: aliceblue;
-    background-color: hsl(348, 100%, 40%);
-}
-
-#resetBtn {
-    background-color: hsl(203, 100%, 60%);
-}
-#resetBtn:hover {
-    background-color: hsl(203, 100%, 70%);
-}
-#resetBtn:active{
-    background-color: hsl(203, 100%, 50%);
-}
