@@ -1,32 +1,45 @@
-// Synchronous      Sequential execution of code; Blocks the flow until complete
-// Asynchronous     Multiple operations happens concurrently; Doesn't block the flow until complete
-//                  We can handle async code by : Callback. Promise, Async/Await
+// Errors Handling     
+//                  Errors when uncaught disrupts the flow of the program
+//                  usually by exiting prematurely
 
-// Synchronous 
-// console.log('Synchronous');
-// console.log('Task 1');
-// console.log('Task 2');
-// console.log('Task 3');
+/*
+    try(){}     :   The code that might cause the problem 
+    catch(){}   :   Catch and handel any errors thrown by try()
+    finally(){} :   Always runs weather the error is caught or not
+                    usually used for clean up, closing connection
 
-
-// Asynchronous 
-// console.log('Asynchronous');
-// setTimeout(() => console.log('Task 1'), 2000)
-// console.log('Task 2');
-// console.log('Task 3');
+    throw       :   To manually throw an error
+                    throw new Error(msg);
+*/
 
 
-function f1(callback) {
-    console.log('Synchronized using callbacks');
-    setTimeout(
-        () => {
-            console.log('Task A');
-            callback();
-        }, 2000)
+// try {
+//     console.log(x);
+//     // here the error is that x is not defined
+// } catch (error) {
+//     console.log(error);
+//     console.error(error);
+// } finally {
+//     console.log('The end of file');
+// }
 
+
+try {
+    let dividend = Number(window.prompt("Enter a dividend"));
+    let divisor = Number(window.prompt("Enter a divisor"));
+
+    if (divisor === 0) {
+        throw new Error('The divisor should be > 0');
+    }
+
+    if (isNaN(dividend) || isNaN(divisor)) {
+        throw new Error('The dividend & divisor should be a number!');
+    }
+    const res = dividend / divisor;
+    console.log(res);
+} catch (error) {
+    console.log(error);
 }
-function f2() {
-    console.log('Task B');
+finally {
+    console.log('End of file');
 }
-
-f1(f2);
