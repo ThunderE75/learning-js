@@ -5,9 +5,92 @@
 
 body {
     color: aliceblue;
-    text-align: center;
-    font-size: 1rem;
+    margin: 0;
+    padding: 0;
     font-family: FiraCode;
-    background-color: hsl(0, 0%, 20%);
+    background-color: hsl(0, 0%, 30%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
+#calculator{
+    background-color: hsl(0, 0%, 10%);
+    border-radius: 15px;
+    width: 70vw;
+    overflow: hidden;
+}
+#input {
+    font-family: FiraCode;
+    /* margin: 0; */
+    padding: 12px 12px;
+    background-color: hsl(0, 0%, 20%);
+    border: none;
+    color: aliceblue;
+    font-size: 4rem;
+    width: 70vw;
+    overflow: hidden;
+    
+}
+
+.keys{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    /* 1fr = fractional unit */
+    gap: 0px;
+    padding: 10px;
+}
+.nmrlKeys{
+    color: aliceblue;
+    background-color: hsl(0, 0%, 30%);
+    font-size: 2em;
+    width: 100px;
+    height: 100px;
+    border-radius: 30px;
+    border: none;
+    margin: 6px;
+    
+}
+
+.nmrlKeys:hover{
+    color: aliceblue;
+    background-color: hsl(0, 0%, 40%);
+    font-size: 2em;
+    border: none;
+    margin: 6px;
+}
+
+.nmrlKeys:active{
+    color: aliceblue;
+    background-color: hsl(0, 0%, 20%);
+    font-size: 2em;
+    border-radius: 50px;
+    transition: border-radius 200ms ease;
+    border: none;
+    margin: 6px;
+}
+.splKeys{
+    background-color: hsl(16, 100%, 66%);
+    font-size: 2em;
+    width: 100px;
+    height: 100px;
+    border-radius: 30px;
+    border: none;
+    margin: 6px;
+}
+
+.splKeys:hover{
+    background-color: hsl(16, 100%, 72%);
+    font-size: 2em;
+    border: none;
+    margin: 6px;
+}
+.splKeys:active{
+    background-color: hsl(16, 100%, 64%);
+    font-size: 2em;
+    border-radius: 50px;
+    transition: border-radius 200ms ease;
+    border: none;
+    margin: 6px;
+}

@@ -9,9 +9,32 @@
 </head>
 
 <body>
-    <h1>Errors Handling</h1>
-    <h3 id="dis1" class="display">Open the console</h3>
-    <script type="module" src="./index.js"></script>
+    <!-- <h1>Calculator</h1> -->
+    <div id="calculator">
+        <input id="input" value="Calculator~" readonly>
+        <div class="keys">
+            <button onclick="appendToDisplay('7')" class="nmrlKeys">7</button>
+            <button onclick="appendToDisplay('8')" class="nmrlKeys">8</button>
+            <button onclick="appendToDisplay('9')" class="nmrlKeys">9</button>
+            <button onclick="appendToDisplay('+')" class="splKeys">+</button>
+            <button onclick="appendToDisplay('4')" class="nmrlKeys">4</button>
+            <button onclick="appendToDisplay('5')" class="nmrlKeys">5</button>
+            <button onclick="appendToDisplay('6')" class="nmrlKeys">6</button>
+            <button onclick="appendToDisplay('-')" class="splKeys">-</button>
+            <button onclick="appendToDisplay('1')" class="nmrlKeys">1</button>
+            <button onclick="appendToDisplay('2')" class="nmrlKeys">2</button>
+            <button onclick="appendToDisplay('3')" class="nmrlKeys">3</button>
+            <button onclick="appendToDisplay('*')" class="splKeys">*</button>
+            <button onclick="appendToDisplay('.')" class="nmrlKeys">.</button>
+            <button onclick="appendToDisplay('0')" class="nmrlKeys">0</button>
+            <button onclick="appendToDisplay('/')" class="splKeys">/</button>
+            <button onclick="calculate()" class="splKeys">=</button>
+            <button onclick="clearDisplay()" class="splKeys">C</button>
+        </div>
+
+    </div>
+    <!-- <h3 id="dis1" class="display">Open the console</h3> -->
+    <script src="./index.js"></script>
 </body>
 
 </html>
