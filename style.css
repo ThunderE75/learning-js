@@ -24,3 +24,11 @@ body {
     /* for key events  */
     position: relative; 
 }
+
+#carImg{
+    width: 500px;
+}
+
+#button{
+    width: 500px;
+}

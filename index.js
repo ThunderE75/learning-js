@@ -1,67 +1,21 @@
-// eventListener (Keyboard)     Listen to specific events to create interactive webpages
-//                              events: keyup, keydown
-//                              document.addEventListener(event, callback)
+/*  Hide & Show HTML Elements
 
-// const myBox = document.getElementById('myBox');
-
-// To access the keys that are being pressed
-// document.addEventListener('keydown', event => {
-//     console.log(`Key down: ${event.key}`);
-// });
-// document.addEventListener('keyup', event => {
-//     console.log(`Key up: ${event.key}`);
-// });
+.style.display = 'none'/'block' vs .style.visibility = 'hidden'/'visible'
+                display = doesn't reserve the space for that element
+                visibility = Reserve the space for that element
+*/
 
 
-// Changing attributes based on keys 
-// document.addEventListener('keydown', event => {
-//     myBox.style.backgroundColor = `coral`;
-//     myBox.textContent = `😂`;
-// });
-// document.addEventListener('keyup', event => {
-//     myBox.style.backgroundColor = `lightgreen`;
-//     myBox.textContent = `😃`;
-// });
+let button = document.getElementById('button');
+let img = document.getElementById('carImg');
 
+button.addEventListener('click', event => {
+    if (img.style.visibility === 'hidden') {
+        img.style.visibility = 'visible';
+        button.textContent = `Hide`;
 
-
-const myBox = document.getElementById('myBox');
-let x = 0;
-let y = 0;
-let movePosition = 10;
-
-document.addEventListener('keydown', event => {
-    if (event.key.startsWith('Arrow')) {
-        myBox.style.backgroundColor = `coral`;
-        event.preventDefault();     // Makes it so the screen doesn't scroll to follow the object
-        switch (event.key) {
-            case 'ArrowUp':
-                y -= movePosition;
-                myBox.textContent = `⬆`;
-                break;
-            case 'ArrowDown':
-                y += movePosition;
-                myBox.textContent = `⬇`;
-                break;
-            case 'ArrowLeft':
-                x -= movePosition;
-                myBox.textContent = `⬅️`;
-                break;
-            case 'ArrowRight':
-                x += movePosition;
-                myBox.textContent = `➡️`;
-                break;
-        }
-        myBox.style.top = `${y}px`;
-        myBox.style.left = `${x}px`;
     } else {
-        myBox.textContent = `⭕`;
-        myBox.style.backgroundColor = `yellow`;
+        img.style.visibility = 'hidden';
+        button.textContent = `Show`;
     }
-
-});
-
-document.addEventListener('keyup', event => {
-    myBox.style.backgroundColor = `lightgreen`;
-    myBox.textContent = `😃`;
 });
