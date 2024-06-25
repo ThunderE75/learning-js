@@ -1,55 +1,30 @@
-/* Async / Await 
-    Async    : makes a function return a promise          
-    Await    : makes an async function wait for a promise
-      
-    Allows you to write asynchronous code in a synchronous manner
-    Async doesn't have resolve or reject parameter
-    Everything after await is placed in an event queue    
+/* JSON (Javascript Object Notation)
+    Data-interchange format
+    JSON Files: {key:value} or [value1, value2, value3]
 
+    JSON.stringify()    = convert a JS object to a JSON String
+    JSON.parse()        = convert a JSON string to a JS object
 */
+const names = `["Spongebob", "Patrick", "Squidward", "Plankton"]`;
+const person = `{ "name": "Spongebob", "age": 26, "isEmployed": true, "hobbies": ["Cooking", "Jellyfishing", "Karate"] }`;
+const people = `[
+        { "name": "Spongebob", "age": 26, "isEmployed": true },
+        { "name": "Patrick", "age": 32, "isEmployed": false },
+        { "name": "Squidward", "age": 41, "isEmployed": true }
+]`;
 
-function walkDog() {
-        const dogWalked = true;
-        return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                        dogWalked ? resolve(`🟢 You walked the dog! 🐕`) : reject(`⭕ You didn't walk the dog! 🐕`);
-                        // if (dogWalked) {
-                        //         resolve(`🟢 You walked the dog! 🐕`);
-                        // } else {
-                        //         reject(`⭕ You didn't walk the dog! 🐕`);
-                        // }
-                }, 1500);
-        });
-}
+// JSON.Stringify()
+// console.log(names);
+// console.log(JSON.stringify(names));
 
-function cleanKitchen() {
-        const kitchenCleaned = true;
-        return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                        kitchenCleaned ? resolve(`🟢 You cleaned the kitchen! 🧹`) : reject(`⭕ You didn't clean the kitchen! 🧹`);
-                }, 2000);
-        });
+// JSON.parse()
+// console.log(names);
+// console.log(JSON.parse(names));
 
-}
 
-function takeoutTrash() {
-        const tookTrashOut = true;
-        return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                        tookTrashOut ? resolve(`🟢 You took the trash out! 🗑️`) : reject(`⭕ You didn't take the trash out! 🗑️`);
-                }, 2000);
-        });
-}
-
-async function doTasks() {
-        try {
-                console.log(await walkDog());
-                console.log(await cleanKitchen());
-                console.log(await takeoutTrash());
-                console.log(`You finished all the task.`);
-        } catch (error) {
-                console.error(error);
-        }
-}
-
-doTasks();
+fetch("./JSON/person.json")
+        // .json converts the fetched data into a json object 
+        // & returns a promise i.e. the value of the json file
+        .then(response => response.json())
+        .then(value => console.log(value))
+        .catch(error => console.error(error));
