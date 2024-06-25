@@ -11,58 +11,14 @@ body {
     background-color: hsl(0, 0%, 15%);
 }
 
+/* display: flex;
+    align-items: center;
+    justify-content: space-around; */
 
 .txt {
     text-align: center;
-}
-
-.slider {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    /* display: flex;
-    align-items: center;
-    justify-content: space-around; */
-}
-
-/* .slider img {
-    width: 100%;
-    display: none;
-} */
-
-.slide {
-    width: 100%;
-    display: none;
-}
-
-.displaySlide {
-    display: block;
-    animation-name: fade;
-    animation-duration: 1s;
-}
-
-.btn {
-    position: absolute;
-    top: 35%;
-    transform: translateY(-50%);
-    font-size: 2rem;
-    color: white;
-    background-color: hsla(0, 0%, 0%, 0.25);
-    border: none;
-    cursor: pointer;
-    padding: 4px;
-    /* margin: 10px */
-}
-
-#prev {
-    left: 0;
-}
-
-#next {
-    right: 0;
-}
-
-@keyframes fade {
-    from {opacity: 0.5}
-    to {opacity: 1}
+    /* .slider img {
+        width: 100%;
+        display: none;
+    } */
 }

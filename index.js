@@ -1,37 +1,39 @@
-// Image Slider
+/* Callback hell  
+        Situation in JS where callbacks are nested within another callbacks
+        to the degree where the code is difficult to read.
+        It's an old pattern to handle asynchronous operation
+                Tasks 
+                1 - Walk dog
+                2 - Clean Kitchen
+                3 - Take out trash
+*/
 
-let slides = document.querySelectorAll('.slide');
-let slideIndex = 0;
-let intervalId = null;
-
-// initSlider()    // Instead of directly calling it
-// Call it after all the dom content is loaded
-document.addEventListener("DOMContentLoaded", initSlider);
-function initSlider() {
-    slides[slideIndex].classList.add("displaySlide");
-    intervalId = setInterval(nextSlide, 3000);
-}
-function showSlide(index) {
-    if (index >= slides.length) {
-        slideIndex = 0;
-    } else if (index < 0) {
-        slideIndex = slides.length - 1;
-    }
-    slides.forEach(slide => {
-        slide.classList.remove("displaySlide");
-    });
-    slides[slideIndex].classList.add("displaySlide");
+function walkDog(callback) {
+        setTimeout(() => {
+                console.log(`You walked the dog! 🐕`);
+                callback();
+        }, 1500);
 }
 
-// Buttons are not working 
+function cleanKitchen(callback) {
+        setTimeout(() => {
+                console.log(`You cleaned the kitchen! 🧹`);
+                callback();
+        }, 2000);
+}
 
-function prevSlide() {
-    clearInterval(intervalId);
-    slideIndex -= 1;
-    showSlide(slideIndex);
+function takeoutTrash(callback) {
+        setTimeout(() => {
+                console.log(`You took the trash out! 🗑️`);
+                callback();
+        }, 2000);
 }
-function nextSlide() {
-    clearInterval(intervalId);
-    slideIndex += 1;
-    showSlide(slideIndex);
-}
+
+// Example of callback hell !
+walkDog(() => {
+        cleanKitchen(() => {
+                takeoutTrash(() => {
+                        console.log('You completed all the task!');
+                })
+        })
+});
