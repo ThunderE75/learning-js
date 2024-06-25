@@ -1,60 +1,37 @@
-// Rock Paper Scissor
+// Image Slider
 
-const choicesAvailable = ['Rock', 'Paper', 'Scissor'];
-let rockBtn = document.getElementById("rock");
-let paperBtn = document.getElementById("paper");
-let scissorBtn = document.getElementById("scissor");
+let slides = document.querySelectorAll('.slide');
+let slideIndex = 0;
+let intervalId = null;
 
-let playerChoice = document.getElementById("playerChoice");
-let computerChoice = document.getElementById("computerChoice");
-
-let resultDisplay = document.getElementById("result");
-
-let playerScoreDisplay = document.getElementById("playerScore");
-let computerScoreDisplay = document.getElementById("computerScore");
-
-let playerScore = 0;
-let computerScore = 0;
-
-playerScoreDisplay.textContent = `Player Score: 0`
-computerScoreDisplay.textContent = `Player Score: 0`
-
-
-function playGame(choice) {
-    let randChoice = choicesAvailable[Math.floor(Math.random() * 3)];
-    let result = "";
-    if (choice === randChoice) {
-        result = "It's a Tie!"
-    } else {
-        switch (choice) {
-            case "Rock":
-                result = (randChoice === "Scissor") ? "You Win!" : "You Lose!";
-                break;
-            case "Paper":
-                result = (randChoice === "Rock") ? "You Win!" : "You Lose!";
-                break;
-            case "Scissor":
-                result = (randChoice === "Paper") ? "You Win!" : "You Lose!";
-                break;
-        }
+// initSlider()    // Instead of directly calling it
+// Call it after all the dom content is loaded
+document.addEventListener("DOMContentLoaded", initSlider);
+function initSlider() {
+    slides[slideIndex].classList.add("displaySlide");
+    intervalId = setInterval(nextSlide, 3000);
+}
+function showSlide(index) {
+    if (index >= slides.length) {
+        slideIndex = 0;
+    } else if (index < 0) {
+        slideIndex = slides.length - 1;
     }
-    playerChoice.textContent = `Player Choice : ${choice}`;
-    computerChoice.textContent = `Computer Choice : ${randChoice}`;
+    slides.forEach(slide => {
+        slide.classList.remove("displaySlide");
+    });
+    slides[slideIndex].classList.add("displaySlide");
+}
 
-    resultDisplay.textContent = result;
-    resultDisplay.classList.remove("win", "lose", "tie");
-    switch (result) {
-        case "You Win!":
-            resultDisplay.classList.add("win");
-            playerScore += 1;
-            playerScoreDisplay.textContent = `Player Score: ${playerScore}`
-            break;
-        case "You Lose!":
-            resultDisplay.classList.add("lose");
-            computerScore += 1;
-            computerScoreDisplay.textContent = `Player Score: ${computerScore}`
-            break;
-        case "It's a Tie!":
-            resultDisplay.classList.add("tie");
-            break;
-    }
+// Buttons are not working 
+
+function prevSlide() {
+    clearInterval(intervalId);
+    slideIndex -= 1;
+    showSlide(slideIndex);
+}
+function nextSlide() {
+    clearInterval(intervalId);
+    slideIndex += 1;
+    showSlide(slideIndex);
+}

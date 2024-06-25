@@ -9,19 +9,18 @@
 </head>
 
 <body>
-    <h1 class="txt">Rock Paper Scissor</h1>
-    <div id="btnContainer">
-        <button id="rock" class="btn" onclick="playGame('Rock')">✊</button>
-        <button id="paper" class="btn" onclick="playGame('Paper')">✋</button>
-        <button id="scissor" class="btn" onclick="playGame('Scissor')">✌️</button>
-    </div>
-    <p id="playerChoice" class="txt">Player Choice : </p>
-    <p id="computerChoice" class="txt">Computer Choice : </p>
-    <p id="result" class="result txt">PLAY NOW!</p>
-
-    <div class="txt">
-        <p id="playerScore">Player Score : </p>
-        <p id="computerScore">Computer Score : </p>
+    <h1 class="txt">Image Slider</h1>
+    <div id="slider">
+        <div id="slides">
+            <img src="./Resources/Images/Slider/image(0).webp" alt="slide 1" class="slide">
+            <img src="./Resources/Images/Slider/image(1).webp" alt="slide 2" class="slide">
+            <img src="./Resources/Images/Slider/image(2).webp" alt="slide 3" class="slide">
+            <img src="./Resources/Images/Slider/image(3).webp" alt="slide 4" class="slide">
+            <img src="./Resources/Images/Slider/image(4).webp" alt="slide 5" class="slide">
+            <img src="./Resources/Images/Slider/image(5).webp" alt="slide 6" class="slide">
+            <button id="prev" class="btn" onclick="prevSlide()">&#10094</button>
+            <button id="next" class="btn" onclick="nextSlide()">&#10095</button>
+        </div>
     </div>
 
     <script src="./index.js"></script>

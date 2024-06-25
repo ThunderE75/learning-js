@@ -11,58 +11,58 @@ body {
     background-color: hsl(0, 0%, 15%);
 }
 
-#btnContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    /* transition: box-shadow 5s ease-in; */
-}
-
-.btn {
-    width: 100px;
-    height: 100px;
-    font-size: 4rem;
-    border: none;
-    border-radius: 50px;
-    transition: background-color 0.2s ease;
-    transition: box-shadow 0.1s ease;
-    background-color: hsl(0, 0%, 18%);
-}
-
-.btn:hover {
-    box-shadow: 0 0 40px hsl(195, 100%, 65%);
-    border: none;
-    border-radius: 50px;
-}
-
-.btn:active {
-    box-shadow: 0 0 40px hsl(131, 100%, 65%);
-    background-color: hsl(131, 100%, 65%);
-    border: none;
-    border-radius: 50px;
-}
 
 .txt {
     text-align: center;
 }
 
-.result {
+.slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    /* display: flex;
+    align-items: center;
+    justify-content: space-around; */
+}
+
+/* .slider img {
+    width: 100%;
+    display: none;
+} */
+
+.slide {
+    width: 100%;
+    display: none;
+}
+
+.displaySlide {
+    display: block;
+    animation-name: fade;
+    animation-duration: 1s;
+}
+
+.btn {
+    position: absolute;
+    top: 35%;
+    transform: translateY(-50%);
     font-size: 2rem;
     color: white;
-    text-shadow: 0 0 40px white;
+    background-color: hsla(0, 0%, 0%, 0.25);
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    /* margin: 10px */
 }
 
-.win {
-    color: hsl(107, 100%, 65%);
-    text-shadow: 0 0 40px hsl(131, 100%, 65%);
+#prev {
+    left: 0;
 }
 
-.lose {
-    color: hsl(0, 100%, 59%);
-    text-shadow: 0 0 40px hsl(0, 100%, 59%);
+#next {
+    right: 0;
 }
 
-.tie {
-    color: hsl(45, 100%, 59%);
-    text-shadow: 0 0 40px hsl(45, 100%, 59%);
+@keyframes fade {
+    from {opacity: 0.5}
+    to {opacity: 1}
 }
