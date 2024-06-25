@@ -2,32 +2,67 @@
     font-family: FiraCode;
     src: url("./Resources/FIRAMONONERDFONT-REGULAR_0.OTF");
 }
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
+
 body {
     color: aliceblue;
     margin: 0px;
     padding: 0px;
     font-family: FiraCode;
-    background-color: hsl(0, 0%, 20%);
+    background-color: hsl(0, 0%, 15%);
 }
 
-#btn{
+#btnContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* transition: box-shadow 5s ease-in; */
+}
+
+.btn {
+    width: 100px;
+    height: 100px;
+    font-size: 4rem;
     border: none;
-    font-size: 2em;
-    margin: 10px;
-    padding: 10px 20px;
+    border-radius: 50px;
+    transition: background-color 0.2s ease;
+    transition: box-shadow 0.1s ease;
+    background-color: hsl(0, 0%, 18%);
 }
 
-.active{
-    color: aliceblue;
-    background-color: rgb(0, 162, 255);
-    /* box-shadow: 0 0 20px hsl(193, 100%, 71%); */
-    font-weight: bold;
+.btn:hover {
+    box-shadow: 0 0 40px hsl(195, 100%, 65%);
+    border: none;
+    border-radius: 50px;
 }
 
-.hover{
-    box-shadow: 0 0 20px hsl(327, 100%, 71%);
-    font-weight: bold;
+.btn:active {
+    box-shadow: 0 0 40px hsl(131, 100%, 65%);
+    background-color: hsl(131, 100%, 65%);
+    border: none;
+    border-radius: 50px;
+}
+
+.txt {
+    text-align: center;
+}
+
+.result {
+    font-size: 2rem;
+    color: white;
+    text-shadow: 0 0 40px white;
+}
+
+.win {
+    color: hsl(107, 100%, 65%);
+    text-shadow: 0 0 40px hsl(131, 100%, 65%);
+}
+
+.lose {
+    color: hsl(0, 100%, 59%);
+    text-shadow: 0 0 40px hsl(0, 100%, 59%);
+}
+
+.tie {
+    color: hsl(45, 100%, 59%);
+    text-shadow: 0 0 40px hsl(45, 100%, 59%);
 }

@@ -9,8 +9,20 @@
 </head>
 
 <body>
+    <h1 class="txt">Rock Paper Scissor</h1>
+    <div id="btnContainer">
+        <button id="rock" class="btn" onclick="playGame('Rock')">✊</button>
+        <button id="paper" class="btn" onclick="playGame('Paper')">✋</button>
+        <button id="scissor" class="btn" onclick="playGame('Scissor')">✌️</button>
+    </div>
+    <p id="playerChoice" class="txt">Player Choice : </p>
+    <p id="computerChoice" class="txt">Computer Choice : </p>
+    <p id="result" class="result txt">PLAY NOW!</p>
 
-    <button id="btn">Button 1</button>
+    <div class="txt">
+        <p id="playerScore">Player Score : </p>
+        <p id="computerScore">Computer Score : </p>
+    </div>
 
     <script src="./index.js"></script>
 </body>
