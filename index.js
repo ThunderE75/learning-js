@@ -1,39 +1,56 @@
-/* Callback hell  
-        Situation in JS where callbacks are nested within another callbacks
-        to the degree where the code is difficult to read.
-        It's an old pattern to handle asynchronous operation
+/* Promise 
+        An object that manages asynchronous operation 
+        asynchronous operation - An operation that can take undermined amount of time  
+
+        Wrap a promise object around {asynchronous code}
+        - Promises to return a value
+
+        - PENDING -> RESOLVED or REJECTED
+        - new Promise((resolved, rejected) => {asynchronous code})
+
                 Tasks 
                 1 - Walk dog
                 2 - Clean Kitchen
                 3 - Take out trash
 */
+const dogWalked = true;
+const kitchenCleaned = false;
+const tookTrashOut = true;
 
-function walkDog(callback) {
-        setTimeout(() => {
-                console.log(`You walked the dog! 🐕`);
-                callback();
-        }, 1500);
+
+function walkDog() {
+        return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                        dogWalked ? resolve(`🟢 You walked the dog! 🐕`) : reject(`⭕ You didn't walk the dog! 🐕`);
+                        // if (dogWalked) {
+                        //         resolve(`🟢 You walked the dog! 🐕`);
+                        // } else {
+                        //         reject(`⭕ You didn't walk the dog! 🐕`);
+                        // }
+                }, 1500);
+        });
 }
 
-function cleanKitchen(callback) {
-        setTimeout(() => {
-                console.log(`You cleaned the kitchen! 🧹`);
-                callback();
-        }, 2000);
+function cleanKitchen() {
+        return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                        kitchenCleaned ? resolve(`🟢 You cleaned the kitchen! 🧹`) : reject(`⭕ You didn't clean the kitchen! 🧹`);
+                }, 2000);
+        });
+
 }
 
-function takeoutTrash(callback) {
-        setTimeout(() => {
-                console.log(`You took the trash out! 🗑️`);
-                callback();
-        }, 2000);
+function takeoutTrash() {
+        return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                        tookTrashOut ? resolve(`🟢 You took the trash out! 🗑️`) : reject(`⭕ You didn't take the trash out! 🗑️`);
+                }, 2000);
+        });
 }
 
-// Example of callback hell !
-walkDog(() => {
-        cleanKitchen(() => {
-                takeoutTrash(() => {
-                        console.log('You completed all the task!');
-                })
-        })
-});
+// Promise using method chaining
+// walkDog().then(value => console.log(value));   // Only for executing the 1st task
+walkDog().then(value => { console.log(value); return cleanKitchen() })
+        .then(value => { console.log(value); return takeoutTrash() })
+        .then(value => { console.log(value); console.log(`All task Completed!`); })
+        .catch(error => console.error(error));
