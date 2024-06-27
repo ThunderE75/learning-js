@@ -22,3 +22,7 @@ body {
         display: none;
     } */
 }
+
+#pokeImg {
+    width: 60vw;
+}
