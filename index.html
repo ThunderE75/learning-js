@@ -9,13 +9,19 @@
 </head>
 
 <body>
-    <h1 class="txt">Pokemon Search</h1>
-    <label for="inpBox">Pokemon Name: </label>
-    <input type="text" value="" id="inpBox">
-    <button id="submit" onclick="fetchData()">Submit</button>
-
-    <img src="" alt="Pokemon Sprite" id="pokeImg" style="display: none;">
-    <!-- <h3 class="txt">Result in console</h3> -->
+    <!-- <h1 class="txt">Weather App</h1> -->
+    <form class="inpForm">
+        <input type="text" class="cityInput" placeholder="Enter a city">
+        <button class="submit">Get Weather</button>
+    </form>
+    <div class="card" style="display:none">
+        <h1 class="cityDisplay">Lucknow</h1>
+        <p class="tempDisplay">69°</p>
+        <p class="humidityDisplay">Humidity: 69%</p>
+        <p class="descDisplay">Description</p>
+        <p class="emojiDisplay">⛅</p>
+        <p class="error">Please enter a city!</p>
+    </div>
 
     <script src="./index.js"></script>
 </body>

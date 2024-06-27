@@ -1,54 +1,116 @@
 /* Fetching data from an api
-    fetch() : Function used for making HTTP request to fetch resources
-    (JSON Style Data, Images, Files)
-    Simplifies asynchronous data fetching in JS and used for
-    interacting with APIs to retrieve and send data asynchronously 
-    over the web  
-    
-    fetch(url, {options})
-    {options} - 
-        method: GET (DEFAULT)   To get a resource   
-        method: POST            To send data
-        method: PUT             To replace some data
-        method: DELETE          To delete some data
 */
 
-// Using ASYNC & AWAIT
+// require('dotenv').config()
+// const apiKey = process.env.apiKey;
+// console.log(apiKey);
+const apiKey = "";
 
-let inputBox = document.getElementById("inpBox");
-let pokeImg = document.getElementById("pokeImg");
 
-async function fetchData() {
-        console.log(`input data: ${inputBox.value}`);
-        let input = String(inputBox.value).trim().toLowerCase();
-        console.log(`Sanitized data: ${input}`);
-        const URL = `https://pokeapi.co/api/v2/pokemon/${input}`;
+const weatherForm = document.querySelector(".inpForm");
+const inputCity = document.querySelector(".cityInput");
+const card = document.querySelector(".card");
+
+weatherForm.addEventListener("submit", async event => {
+    // forms have a default behavior to refresh the page
+    // this line just prevents it from happing
+    event.preventDefault();
+
+    let city = inputCity.value
+    if (city) {
         try {
-                const response = await fetch(URL);
-                if (!response.ok) { throw new Error("Not a Pokemon") }
-                const data = await response.json();     // Long process, so you need await
-                console.log(data.name);
-                const image = data.sprites.front_default;
-                pokeImg.src = image;
-                pokeImg.alt = `input-${data.name}`;
-                pokeImg.style = "display: block";
+            let weatherData = await getWeatherInfo(city);
+            displayWeatherInfo(weatherData);
         } catch (err) {
-                console.error(err);
+            console.error(err);
+            displayError(err);
         }
+    } else {
+        displayError("Please enter a city!");
+    }
+
+})
+
+async function getWeatherInfo(city) {
+    const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+    const response = await fetch(URL);
+
+    if (!response.ok) throw new Error("Can't fetch the data!");
+    return await response.json();
 }
 
+function displayWeatherInfo(data) {
+    // console.log(data);
+    const { name: city,
+        main: { temp, humidity },
+        weather: [{ description, id }]
+    } = data;
+
+    card.textContent = "";
+    card.style.display = "flex";
+
+    const cityDisplay = document.createElement('h1');
+    const tempDisplay = document.createElement('p');
+    const humidityDisplay = document.createElement('p');
+    const descDisplay = document.createElement('p');
+    const emojiDisplay = document.createElement('p');
+
+    cityDisplay.textContent = city;
+    tempDisplay.textContent = `${(temp - 273.15).toFixed(1)}°C | ${((temp - 273.15) * (9 / 5) + 32).toFixed(1)}°F`;
+    humidityDisplay.textContent = `Humidity: ${humidity}%`;
+    descDisplay.textContent = `${description}`;
+    emojiDisplay.textContent = getWeatherEmoji(id);
 
 
+    card.classList.add("sunny");
+    cityDisplay.classList.add("cityDisplay");
+    tempDisplay.classList.add("tempDisplay");
+    descDisplay.classList.add("descDisplay");
+    emojiDisplay.classList.add("emojiDisplay");
 
-// Using JS promises chaining
-// const URL = `https://pokeapi.co/api/v2/pokemon/pikachu`;
-// fetch(URL)
-//         .then(response => {
-//                 if (!response.ok) throw new Error("Not a pokemon!");
-//                 return response.json();
-//         })
-//         .then(data => {
-//                 console.log(data.name);
-//                 console.log(data.weight);
-//         })
-//         .catch(error => console.error(error))
+    card.appendChild(cityDisplay);
+    card.appendChild(tempDisplay);
+    card.appendChild(humidityDisplay);
+    card.appendChild(descDisplay);
+    card.appendChild(emojiDisplay);
+}
+
+function getWeatherEmoji(weatherId) {
+    switch (true) {
+        case (weatherId >= 200 && weatherId < 300):
+            card.classList.add("rain");
+            return "⛈️";
+            break;
+        case (weatherId >= 300 && weatherId < 400):
+            return "🌦️";
+            break;
+        case (weatherId >= 500 && weatherId < 600):
+            return "🌧️";
+            break;
+        case (weatherId >= 600 && weatherId < 700):
+            return "🌨️";
+            break;
+        case (weatherId >= 700 && weatherId < 800):
+            return "🌪️";
+            break;
+        case (weatherId == 800):
+            card.classList.add("sunny");
+            return "☀️";
+            break;
+        case (weatherId >= 800 && weatherId < 900):
+            return "☁️";
+            break;
+    }
+}
+
+function displayError(message) {
+    const errDisp = document.createElement('p');
+    errDisp.textContent = message;
+    errDisp.classList.add("error");
+
+    card.textContent = "";
+    card.style.display = "flex";
+    card.classList.add("errorGradient")
+    card.appendChild(errDisp);
+
+}

@@ -7,22 +7,116 @@ body {
     color: aliceblue;
     margin: 0px;
     padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     font-family: FiraCode;
     background-color: hsl(0, 0%, 15%);
 }
 
-/* display: flex;
-    align-items: center;
-    justify-content: space-around; */
-
-.txt {
-    text-align: center;
-    /* .slider img {
-        width: 100%;
-        display: none;
-    } */
+.inpForm {
+    margin: 16px;
 }
 
-#pokeImg {
-    width: 60vw;
+* {
+    font-family: FiraCode;
+}
+
+.cityInput {
+    font-size: 1.2rem;
+    width: auto;
+    border: none;
+    padding: 6px;
+    color: aliceblue;
+    background-color: hsla(0, 0%, 0%, 0.3);
+}
+
+.submit {
+    font-size: 1.2rem;
+    width: auto;
+    border: none;
+    padding: 6px;
+    font-weight: bold;
+    transition: box-shadow .2s ease;
+    background-color: hsl(195, 100%, 70%);
+}
+
+.submit:hover {
+    background-color: hsl(195, 100%, 60%);
+    box-shadow: 0px 0px 15px hsl(195, 100%, 70%);
+}
+
+.submit:active {
+    background-color: hsl(195, 100%, 80%);
+}
+
+.card {
+    background-color: hsla(0, 0%, 0%, 0.25);
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.9);
+    border: none;
+    border-radius: 20px;
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 380px;
+
+}
+
+.gradient {
+    background: rgb(0, 127, 194);
+    background: linear-gradient(0deg, rgba(0, 127, 194, 1) 0%,
+            rgba(255, 63, 63, 1) 50%,
+            rgba(253, 187, 45, 1) 100%);
+}
+
+.sunny {
+    background: rgb(255, 63, 63);
+    background: linear-gradient(0deg, rgba(255, 63, 63, 1) 20%, rgba(253, 187, 45, 1) 100%);
+}
+
+.rain {
+    background: rgb(0, 212, 255);
+    background: linear-gradient(180deg, rgba(0, 212, 255, 1) 0%, rgba(11, 0, 193, 1) 100%);
+}
+
+h1 {
+    padding: none;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.5rem;
+    margin: 5px 0px;
+
+}
+
+.cityDisplay,
+.tempDisplay {
+    color: hsl(0, 0%, 100%);
+    font-size: 2.2rem;
+    font-weight: bold;
+
+}
+
+.descDisplay {
+    font-style: italic
+}
+
+.emojiDisplay {
+    margin: 0;
+    font-size: 5rem;
+}
+
+.error {
+    font-weight: bold;
+}
+
+.errorGradient {
+    background: hsla(0, 0%, 0%, 0.002);
+    color: hsla(0, 100%, 63%, 0.9);
+    text-shadow: 0px 0px 10px hsla(0, 100%, 63%, 0.9);
+    box-shadow: 0px 0px 0px black;
+
 }
